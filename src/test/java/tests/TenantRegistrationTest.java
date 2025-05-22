@@ -8,12 +8,13 @@ import org.testng.annotations.Test;
 import base.BaseTest;
 import pages.SignUpPage;
 
-public class SignUpTest extends BaseTest{
+public class TenantRegistrationTest extends BaseTest{
 	
 	
 	@Test
 	public void createNewTenant() throws InterruptedException {
-		SignUpPage signUp = new SignUpPage(driver);
+
+		SignUpPage signUp = new SignUpPage(driver, wait);
 		
 		
         // Generate timestamp-based unique identifier
@@ -22,9 +23,9 @@ public class SignUpTest extends BaseTest{
         // Dynamic email and domain
         String email = "darshak" + timestamp + "@yopmail.com";
         String domain = "flyingqa" + timestamp + ".com";
-        String password = "Test@1234";
-		
-		signUp.registerLink();
+        
+        
+        signUp.registerLink();
 		signUp.enterFirstName("Darshak");
 		signUp.enterLastName("Paladiya");
 		signUp.enterEmail(email);

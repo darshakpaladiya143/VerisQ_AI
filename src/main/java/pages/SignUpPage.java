@@ -18,7 +18,7 @@ public class SignUpPage extends BasePage {
 
     private WebDriverWait wait;
 
-    private By registerLink = By.linkText("Register For Free");
+    private By registerLink = By.linkText("Register here for Free Trial");
     private By inputFirstName = By.xpath("//input[@aria-label='textbox' and @placeholder='First Name']");
     private By inputLastName = By.xpath("//input[@aria-label='textbox' and @placeholder='Last Name']");
     private By inputEmailName = By.xpath("//input[@aria-label='textbox' and @placeholder='Email']");
@@ -39,8 +39,8 @@ public class SignUpPage extends BasePage {
 
     
 
-    public SignUpPage(WebDriver driver) {
-        super(driver);
+    public SignUpPage(WebDriver driver , WebDriverWait wait) {
+        super(driver,wait);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
@@ -77,7 +77,7 @@ public class SignUpPage extends BasePage {
         System.out.println(domain);
     }
 
-    public void selectCompanysize(String sizeText) {
+    public void selectCompanysize(String sizeText) throws InterruptedException {
     	
         WebElement dropdownIcon = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("span.e-input-group-icon.e-ddl-icon")));
         dropdownIcon.click();
@@ -86,6 +86,7 @@ public class SignUpPage extends BasePage {
         String xpath = String.format("//li[contains(text(),'%s') and @class='e-list-item']", sizeText);
         WebElement desiredOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
         desiredOption.click();
+        Thread.sleep(3000);
         
     }
     
@@ -237,6 +238,7 @@ public class SignUpPage extends BasePage {
     	    
     	    driver.findElement(By.xpath("//input[@id='userName']")).sendKeys(email);
     	    driver.findElement(By.xpath("//input[@id='password']")).sendKeys("Test@1234");
+    	    Thread.sleep(2000);
     	    driver.findElement(By.xpath("//button[normalize-space()='Login']")).click(); // Update locator
     	    
     	    
