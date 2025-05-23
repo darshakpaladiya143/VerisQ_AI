@@ -21,6 +21,7 @@ public abstract class BasePage {
     private By loader = By.cssSelector(".loader-page-section");
     private By toggleBtn = By.cssSelector("button.btn-toggle");
     private By thirdPartyMenu = By.xpath("//span[@class='nav-menu-title' and text()='Third-Party Risk Management']");
+    private By manageVendorMenu = By.xpath("//span[@class='nav-menu-title' and contains(text(), 'Manage Vendors')]");
 	
 	public BasePage(WebDriver driver , WebDriverWait wait) {
 		this.driver= driver;
@@ -45,6 +46,12 @@ public abstract class BasePage {
 	public void clickThirdPartyRisk() {
 	    WebElement thirdPartyButton = wait.until(ExpectedConditions.visibilityOfElementLocated(thirdPartyMenu));
 	    thirdPartyButton.click();   
+	}
+	
+	
+	public void clickManageVendor() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(manageVendorMenu));
+		driver.findElement(manageVendorMenu).click();
 	}
 	
 	

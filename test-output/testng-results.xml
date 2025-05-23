@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-05-22T10:05:45 IST" name="Default suite" finished-at="2025-05-22T10:06:42 IST" duration-ms="56918">
+  <suite started-at="2025-05-23T17:48:13 IST" name="Default suite" finished-at="2025-05-23T17:49:53 IST" duration-ms="100446">
     <groups>
     </groups>
-    <test started-at="2025-05-22T10:05:45 IST" name="Default test" finished-at="2025-05-22T10:06:42 IST" duration-ms="56918">
-      <class name="tests.TenantRegistrationTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.TenantRegistrationTest@243c4f91]" started-at="2025-05-22T10:05:45 IST" name="setUp" finished-at="2025-05-22T10:05:52 IST" duration-ms="6790" status="PASS">
+    <test started-at="2025-05-23T17:48:13 IST" name="Default test" finished-at="2025-05-23T17:49:53 IST" duration-ms="100446">
+      <class name="tests.LoginPageTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.LoginPageTest@243c4f91]" started-at="2025-05-23T17:48:13 IST" name="setUp" finished-at="2025-05-23T17:48:23 IST" duration-ms="10251" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="createNewTenant()[pri:0, instance:tests.TenantRegistrationTest@243c4f91]" started-at="2025-05-22T10:05:52 IST" name="createNewTenant" finished-at="2025-05-22T10:06:42 IST" duration-ms="50051" status="PASS">
+        <test-method signature="loginAddVednor()[pri:0, instance:tests.LoginPageTest@243c4f91]" started-at="2025-05-23T17:48:23 IST" name="loginAddVednor" finished-at="2025-05-23T17:49:53 IST" duration-ms="90083" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createNewTenant -->
-        <test-method is-config="true" signature="getDriver()[pri:0, instance:tests.TenantRegistrationTest@243c4f91]" started-at="2025-05-22T10:06:42 IST" name="getDriver" finished-at="2025-05-22T10:06:42 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- loginAddVednor -->
+        <test-method is-config="true" signature="getDriver()[pri:0, instance:tests.LoginPageTest@243c4f91]" started-at="2025-05-23T17:49:53 IST" name="getDriver" finished-at="2025-05-23T17:49:53 IST" duration-ms="8" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getDriver -->
-      </class> <!-- tests.TenantRegistrationTest -->
+      </class> <!-- tests.LoginPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

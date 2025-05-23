@@ -1,8 +1,8 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -11,7 +11,6 @@ public class LoginPage extends BasePage {
 	private By inputEamil = By.xpath("//input[@id='userName']");
     private By inputPassword = By.xpath("//input[@id='password']");
     private By btnLogin = By.xpath("//button[normalize-space()='Login']");  
-    
     public LoginPage (WebDriver driver , WebDriverWait wait) {
 	   super(driver, wait);
 	}
@@ -33,8 +32,23 @@ public class LoginPage extends BasePage {
 	public void submitLogin() throws InterruptedException {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(btnLogin));
 		driver.findElement(btnLogin).click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 	}
 	
+	public void visibilityOfGraph() throws InterruptedException {
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(graphReact));
+
+        wait.until(d -> {
+        JavascriptExecutor js = (JavascriptExecutor) d;
+        Object result = js.executeScript(
+        "const rect = document.querySelector('rect[id*=\"_ChartAreaBorder\"]');" +
+        "return rect && rect.getAttribute('width') > 0 && rect.getAttribute('height') > 0;"
+        );
+        return Boolean.TRUE.equals(result);
+        });
 		
+		
+	}
+			
 }
+
