@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import base.BaseTest;
 import pages.SignUpPage;
+import utils.TestDataGenerator;
 
 public class TenantRegistrationTest extends BaseTest{
 	
@@ -26,12 +27,16 @@ public class TenantRegistrationTest extends BaseTest{
         
         
         signUp.registerLink();
-		signUp.enterFirstName("Darshak");
-		signUp.enterLastName("Paladiya");
+        
+		signUp.enterFirstName(TestDataGenerator.getLastName());
+		signUp.enterLastName(TestDataGenerator.getLastName());
+		
 		signUp.enterEmail(email);
-		signUp.enterPhoneNo("9998887777"); 
-		signUp.enterOrgName("Flying QA");
+		signUp.enterPhoneNo(TestDataGenerator.getPhoneNumber()); 
+		signUp.enterOrgName(TestDataGenerator.getCompanyName());
+		
 		signUp.enterDomainName(domain);
+		
 		signUp.selectCompanysize("51 - 250 Employees");
 		signUp.selectVendorDropdownOption("51 - 250 Vendors");
 		signUp.enterPassword("Test@1234");

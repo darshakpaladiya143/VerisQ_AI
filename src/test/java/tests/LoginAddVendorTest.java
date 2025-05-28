@@ -9,7 +9,7 @@ import base.BaseTest;
 import pages.LoginPage;
 import pages.VendorPage;
 
-public class LoginPageTest extends BaseTest {
+public class LoginAddVendorTest extends BaseTest {
 	
 	
 	@Test
@@ -28,12 +28,13 @@ public class LoginPageTest extends BaseTest {
 		login.loginEmail("darshak20250521162148@yopmail.com");
 		login.loginPassword("Test@1234");
 		login.submitLogin();
+		
 		login.getLoggedInUserName();
 		login.sideMenuWrap();
 		login.clickThirdPartyRisk();
 		login.visibilityOfGraph();
-		
 		login.sideMenuWrap();
+		
 		login.clickManageVendor();
 		
 		// Form - Step : 1 
@@ -47,6 +48,7 @@ public class LoginPageTest extends BaseTest {
 		vendor.enterProductUrl("https://www." + domain);
         vendor.enterProductDescription("Automation Testing Platform");
         vendor.selectServices();
+        
         vendor.enterContactEmail(vendorEmail);
         vendor.enterContnactName("Darshak");        
         vendor.nextButton();

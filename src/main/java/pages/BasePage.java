@@ -22,6 +22,7 @@ public abstract class BasePage {
     private By toggleBtn = By.cssSelector("button.btn-toggle");
     private By thirdPartyMenu = By.xpath("//span[@class='nav-menu-title' and text()='Third-Party Risk Management']");
     private By manageVendorMenu = By.xpath("//span[@class='nav-menu-title' and contains(text(), 'Manage Vendors')]");
+    private By assResponseMenu =  By.xpath("//span[text()='Assessment Response']");
 	
 	public BasePage(WebDriver driver , WebDriverWait wait) {
 		this.driver= driver;
@@ -61,6 +62,10 @@ public abstract class BasePage {
 		driver.findElement(profileDiv).click();
 	}
 	
+	public void clickAssResponseMenu() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(assResponseMenu));
+		driver.findElement(assResponseMenu).click();
+	}
 	
 	
 }

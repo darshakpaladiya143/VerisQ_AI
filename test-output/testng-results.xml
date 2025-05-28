@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-05-23T17:48:13 IST" name="Default suite" finished-at="2025-05-23T17:49:53 IST" duration-ms="100446">
+  <suite started-at="2025-05-28T13:11:05 IST" name="Default suite" finished-at="2025-05-28T13:13:13 IST" duration-ms="128017">
     <groups>
     </groups>
-    <test started-at="2025-05-23T17:48:13 IST" name="Default test" finished-at="2025-05-23T17:49:53 IST" duration-ms="100446">
-      <class name="tests.LoginPageTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.LoginPageTest@243c4f91]" started-at="2025-05-23T17:48:13 IST" name="setUp" finished-at="2025-05-23T17:48:23 IST" duration-ms="10251" status="PASS">
+    <test started-at="2025-05-28T13:11:05 IST" name="Default test" finished-at="2025-05-28T13:13:13 IST" duration-ms="128017">
+      <class name="tests.DefaultAssessmentTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.DefaultAssessmentTest@6a192cfe]" started-at="2025-05-28T13:11:05 IST" name="setUp" finished-at="2025-05-28T13:11:13 IST" duration-ms="7479" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="loginAddVednor()[pri:0, instance:tests.LoginPageTest@243c4f91]" started-at="2025-05-23T17:48:23 IST" name="loginAddVednor" finished-at="2025-05-23T17:49:53 IST" duration-ms="90083" status="PASS">
+        <test-method signature="performDefaultAssessment()[pri:0, instance:tests.DefaultAssessmentTest@6a192cfe]" started-at="2025-05-28T13:11:13 IST" name="performDefaultAssessment" finished-at="2025-05-28T13:13:13 IST" duration-ms="120344" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginAddVednor -->
-        <test-method is-config="true" signature="getDriver()[pri:0, instance:tests.LoginPageTest@243c4f91]" started-at="2025-05-23T17:49:53 IST" name="getDriver" finished-at="2025-05-23T17:49:53 IST" duration-ms="8" status="PASS">
+        </test-method> <!-- performDefaultAssessment -->
+        <test-method is-config="true" signature="getDriver()[pri:0, instance:tests.DefaultAssessmentTest@6a192cfe]" started-at="2025-05-28T13:13:13 IST" name="getDriver" finished-at="2025-05-28T13:13:13 IST" duration-ms="2" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getDriver -->
-      </class> <!-- tests.LoginPageTest -->
+      </class> <!-- tests.DefaultAssessmentTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

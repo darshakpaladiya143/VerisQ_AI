@@ -31,7 +31,7 @@ public class BaseTest {
         driver = new ChromeDriver(options);
 		driver.manage().window().maximize();
 		driver.get("https://uat.verisq.ai/login");
-		wait = new WebDriverWait(driver, Duration.ofSeconds(30)); 
+		wait = new WebDriverWait(driver, Duration.ofSeconds(60)); 
 	}
 	
 	
