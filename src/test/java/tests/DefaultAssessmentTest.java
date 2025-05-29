@@ -28,19 +28,53 @@ public class DefaultAssessmentTest extends BaseTest {
 		assessment.scrollUpToLatestAssessment();		
 		assessment.getWaitForResponder();
 		
-		assessment.section1Answer();
+		// Section -1 
 		
+		assessment.section1Answer();
 		assessment.nextBtn();
 		
         // Section - 2 		
-		
+	
 		assessment.section2GetHeader();
 		assessment.section2Answer();
 		assessment.nextBtn();
 		
-		// Section -3
 		
-//		assessment.section3GetHeader();
+		// Section -3 
+		
+		assessment.section3GetHeader();
+		assessment.section3Answer();
+		assessment.nextBtn();
+		
+		// Section - 4 
+		
+		assessment.section4GetHeader();
+		assessment.section4Answer();
+		assessment.nextBtn();
+		
+		// Section - 5 
+		
+		assessment.section5GetHeader();
+		assessment.section5Answer();
+		assessment.nextBtn();
+		
+		// Section - 6
+		
+		assessment.section6GetHeader();
+		assessment.section6Answer();
+		assessment.nextBtn();
+		
+		// Section -7 
+		
+		assessment.section7GetHeader();
+		assessment.section7Answer();
+		assessment.nextBtn();
+		
+		// Section -8 
+		
+		assessment.section8GetHeader();
+		assessment.completeAssessment();
+			
 		
 	}
 	
