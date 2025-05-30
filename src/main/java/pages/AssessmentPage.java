@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.NoSuchElementException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
@@ -290,10 +292,33 @@ public class AssessmentPage extends BasePage {
 	    }
 	}
 
+//	private void clickRadio(String value) {
+//	    WebElement radio = driver.findElement(By.xpath("//input[@type='radio' and contains(@value,'" + value + "')]"));
+//	    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", radio);
+//	}
+//	
+	
 	private void clickRadio(String value) {
-	    WebElement radio = driver.findElement(By.xpath("//input[@type='radio' and contains(@value,'" + value + "')]"));
-	    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", radio);
+	    try {
+	        // Try 1: Locate radio button input with value and click it via JS
+	        WebElement radioInput = driver.findElement(By.xpath("//input[@type='radio' and contains(@value, '" + value + "')]"));
+	        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", radioInput);
+	        System.out.println("Clicked radio input with value: " + value);
+	    } catch (Exception e1) {
+	        try {
+	            // Try 2: Locate label containing visible text and click it
+	            WebElement label = driver.findElement(By.xpath("//label[span[contains(text(), '" + value + "')]]"));
+	            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", label);
+	            System.out.println("Clicked label with value: " + value);
+	        } catch (Exception e2) {
+	            System.out.println("Unable to click radio button for value: " + value);
+	            e2.printStackTrace();
+	        }
+	    }
 	}
+
+	
+	
 
 	private void enterText(By inputLocator, String text) throws InterruptedException {
 	    WebElement input = wait.until(ExpectedConditions.elementToBeClickable(inputLocator));
@@ -349,6 +374,7 @@ public class AssessmentPage extends BasePage {
 
 	    // 2.8
 	    clickLabel(section2Input8Label);
+	    clickRadio("No");
 	    enterTextWithScroll(section2Input82, "We incorporate cybersecurity clauses in contracts and service-level agreements (SLAs) to ensure suppliers adhere to our security standards.");
 	}
 
@@ -629,6 +655,5 @@ public class AssessmentPage extends BasePage {
 	}
 	
 	
-
 	
 }

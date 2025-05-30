@@ -1,8 +1,6 @@
 package pages;
 
-import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.Date;
 import java.util.Set;
 
 import org.openqa.selenium.By;
@@ -11,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 public class VendorPage extends BasePage {
 
@@ -75,6 +72,7 @@ public class VendorPage extends BasePage {
 	public void enterPrimaryDomainName(String domain) {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(inputDomainName));
 		driver.findElement(inputDomainName).sendKeys(domain);
+		System.out.println(domain);
 	}
 	
 	
@@ -175,15 +173,16 @@ public class VendorPage extends BasePage {
 		Thread.sleep(5000);
 	}
 	
-	public void extractVendorNameFromTable() {
+	public void getVendorNameFromTable() {
 		
-		// Locate the vendor name cell using the button's text
-	    WebElement vendorNameElement = wait.until(ExpectedConditions.presenceOfElementLocated(
-	        By.xpath("(//td[contains(@class,'e-templatecell')]//button[contains(@class,'link-title-td')])[1]")
-	    ));
+	    WebElement vendorNameElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//td[contains(@class,'e-templatecell')]//button[contains(@class,'link-title-td')])[1]")));
 	    
 	    String actualVendorName =  vendorNameElement.getText();
 	    System.out.println(actualVendorName);
+	    
+	    // Assertion 1 
+	    
+	    
 	}
 	
 	
@@ -253,6 +252,8 @@ public class VendorPage extends BasePage {
           
           wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Save']")));
           driver.findElement(By.xpath("//button[text()='Save']")).click();
+          
+          // Assertion 2 
           
           driver.switchTo().window(parentWindow);
           driver.close();

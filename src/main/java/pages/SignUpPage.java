@@ -1,11 +1,7 @@
 package pages;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -13,10 +9,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class SignUpPage extends BasePage {
 
     private WebDriverWait wait;
+    private String firstName;
+    private String lastName;
 
     private By registerLink = By.linkText("Register here for Free Trial");
     private By inputFirstName = By.xpath("//input[@aria-label='textbox' and @placeholder='First Name']");
@@ -49,12 +48,26 @@ public class SignUpPage extends BasePage {
     }
 
     public void enterFirstName(String fName) {
+        this.firstName = fName;
         wait.until(ExpectedConditions.visibilityOfElementLocated(inputFirstName)).sendKeys(fName);
     }
+    
+    
+    public String getFirstName() {
+        return this.firstName;
+    }
+    
 
     public void enterLastName(String lName) {
+        this.lastName = lName;
         wait.until(ExpectedConditions.visibilityOfElementLocated(inputLastName)).sendKeys(lName);
     }
+    
+    public String getLastName() {
+        return this.lastName;
+    }
+    
+    
 
     public void enterEmail(String email) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(inputEmailName)).sendKeys(email);
@@ -168,7 +181,13 @@ public class SignUpPage extends BasePage {
       wait.until(ExpectedConditions.visibilityOfElementLocated(proccedToPaymentBtn));
       driver.findElement(proccedToPaymentBtn).click();
       Thread.sleep(3000);
-    
+      
+      // Assertion -1 
+      String expectedText = "I've Verified My Email";
+      WebElement verifyButton = driver.findElement(By.xpath("//button[contains(@class, 'btn-verify')]"));
+      wait.until(ExpectedConditions.visibilityOfElementLocated(verifyEmailButton));
+      Assert.assertEquals(verifyButton.getText().trim(), expectedText);
+      
     }
     
     public void clickVerifyEmail() {
@@ -234,20 +253,24 @@ public class SignUpPage extends BasePage {
     	        }
     	    }
 
-    	    new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.titleContains("Login")); // Adjust as per expected title
+    	    new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.titleContains("Login")); 
     	    
     	    driver.findElement(By.xpath("//input[@id='userName']")).sendKeys(email);
     	    driver.findElement(By.xpath("//input[@id='password']")).sendKeys("Test@1234");
     	    Thread.sleep(2000);
-    	    driver.findElement(By.xpath("//button[normalize-space()='Login']")).click(); // Update locator
+    	    driver.findElement(By.xpath("//button[normalize-space()='Login']")).click(); 
+    	    Thread.sleep(2000);
+     
+    	    // Assertion - 2 
     	    
-    	    
-            System.out.println("New created user verfiy and login successfully");
-            
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='u-name ms-2']")));
+            String actualUserName = driver.findElement(By.xpath("//div[@class='u-name ms-2']")).getText();
+            String expectedUserName = getFirstName() + " " + getLastName();
+            Assert.assertEquals(actualUserName, expectedUserName);
+         
             driver.switchTo().window(parentWindow);
             driver.close();
-    	
+            
     }
-    
     
 }
