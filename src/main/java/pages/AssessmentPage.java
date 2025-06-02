@@ -1,7 +1,5 @@
 package pages;
 
-import java.util.NoSuchElementException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;

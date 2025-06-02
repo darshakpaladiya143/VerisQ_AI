@@ -183,6 +183,7 @@ public class SignUpPage extends BasePage {
       Thread.sleep(3000);
       
       // Assertion -1 
+      
       String expectedText = "I've Verified My Email";
       WebElement verifyButton = driver.findElement(By.xpath("//button[contains(@class, 'btn-verify')]"));
       wait.until(ExpectedConditions.visibilityOfElementLocated(verifyEmailButton));

@@ -62,11 +62,10 @@ public class LoginAddVendorTest extends BaseTest {
         vendor.scrollToQuestion("1.8");
         vendor.selectRadioButton("1.8", "No");
         vendor.saveBtn();
-        vendor.getVendorNameFromTable();
+        vendor.verifyVendorInTable(vendorName);
         vendor.setVendorPassword(vendorEmail);
         
-//		login.clickProfile();
-		
 	}
 
+	
 }

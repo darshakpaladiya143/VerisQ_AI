@@ -5,10 +5,12 @@ import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class VendorPage extends BasePage {
 
@@ -30,6 +32,11 @@ public class VendorPage extends BasePage {
     private By loader = By.cssSelector(".loader-page-section");
 	private By nextBtn = By.xpath("//button[text()='Next']");
 	private By saveBtn = By.xpath("//button[text()='Save']");
+	private By vendorHeader =By.xpath("//h4[text()='Vendor List']");
+	private By spinnerLoader = By.cssSelector("div.e-spinner-pane:not(.e-spin-hide)");
+	private By loginTitle =  By.xpath("//h3[@class='logintitle' and contains(text(),'Login')]");
+
+			
 	
 	// Form Step : 2
 	
@@ -103,7 +110,7 @@ public class VendorPage extends BasePage {
 	public void enterContactEmail(String contactEmail) {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(inputContactEmail));
 		driver.findElement(inputContactEmail).sendKeys(contactEmail);
-		System.out.print("New added Vendor Contact Email is " + contactEmail);
+		System.out.print("New added Vendor Contact Email is " + contactEmail + "\n" );
 	}
 	
 	public void enterContnactName(String contactName) {
@@ -170,20 +177,70 @@ public class VendorPage extends BasePage {
 	public void saveBtn() throws InterruptedException {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(saveBtn));
 		driver.findElement(saveBtn).click();
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(vendorHeader));
 	}
 	
-	public void getVendorNameFromTable() {
-		
-	    WebElement vendorNameElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//td[contains(@class,'e-templatecell')]//button[contains(@class,'link-title-td')])[1]")));
-	    
-	    String actualVendorName =  vendorNameElement.getText();
-	    System.out.println(actualVendorName);
-	    
-	    // Assertion 1 
-	    
-	    
+	
+	
+	private void refreshVendorList() {
+	    driver.navigate().refresh();
+	    wait.until(ExpectedConditions.and(
+	        ExpectedConditions.invisibilityOfElementLocated(spinnerLoader),
+	        ExpectedConditions.visibilityOfElementLocated(vendorHeader),
+	        ExpectedConditions.presenceOfElementLocated(By.xpath("//table//tr"))
+	    ));
 	}
+	
+	
+	
+	public void verifyVendorInTable(String vendorName) {
+		
+	    // Refresh and wait
+	    refreshVendorList();
+	    
+	    WebElement vendorNameElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//td[contains(@class,'e-templatecell')]//button[contains(@class,'link-title-td')])[1]"))); 
+	    
+	    // Build dynamic XPath to find the exact vendor
+	    
+	    String vendorXpath = String.format(
+	        "//td[contains(@class,'e-templatecell')]//button[contains(@class,'link-title-td') and normalize-space()='%s']",
+	        vendorName);
+	    
+	    // Wait for vendor to appear with explicit timeout
+	    
+	    try {
+	            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(vendorXpath)));
+	        
+	        String actualText = vendorNameElement.getText().trim();
+	        Assert.assertEquals(actualText, vendorName);
+	    } catch (TimeoutException e) {
+	        Assert.fail("Vendor '" + vendorName + "' not found in table after refresh");
+	    }
+	}
+	
+	
+	
+	
+//	public void getVendorNameFromTable(String vendorName) {
+//	    WebElement vendorNameElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//td[contains(@class,'e-templatecell')]//button[contains(@class,'link-title-td')])[1]")));
+//	   
+//        wait.until(ExpectedConditions.or(
+//                ExpectedConditions.invisibilityOfElementLocated(spinnerLoader),
+//                ExpectedConditions.attributeContains(spinnerLoader, "class", "e-spin-hide")
+//            ));
+//	    
+//	    
+//	    String actualVendorName =  vendorNameElement.getText();
+//	    
+//	    // Assertion 1 
+//	    
+//	    Assert.assertEquals(actualVendorName, vendorName);
+//	    System.out.println(actualVendorName);
+//	    
+//	}
+	
+	
+	
 	
 	
     public void setVendorPassword(String vendorEmail) throws InterruptedException {
@@ -253,8 +310,11 @@ public class VendorPage extends BasePage {
           wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text()='Save']")));
           driver.findElement(By.xpath("//button[text()='Save']")).click();
           
-          // Assertion 2 
-          
+          // Assertion 2 login Page
+          WebElement loginHeader = wait.until(ExpectedConditions.visibilityOfElementLocated(loginTitle));
+          String actualText = loginHeader.getText().trim();
+          Assert.assertEquals(actualText, "Login");
+
           driver.switchTo().window(parentWindow);
           driver.close();
   	
