@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class AssessmentPage extends BasePage {
 	
 	
-	private By templateCell  = By.xpath("//td[contains(@class, 'e-templatecell')]//div[contains(text(),'FlyingQA_20250527144844 Verisq TPRM-NIST-CSF-2-0 Autoscored')]");
+	private By templateCell  = By.xpath("//td[contains(@class, 'e-templatecell')]//div[contains(text(),'FlyingQA_20250604170519 Verisq TPRM-NIST-CSF-2-0 Autoscored')]");
 	
 	// Section 1 Label 
 	
@@ -90,48 +90,53 @@ public class AssessmentPage extends BasePage {
 	
 			
 	public void section1Answer() throws InterruptedException {
-	    // 1. Wait for section to load
+		
+		// === SECTION 1.1 ===
+	  
 	    wait.until(ExpectedConditions.visibilityOfElementLocated(input1Label));
 
-	    // 2. Scroll and expand Section 1.1
 	    WebElement section1Label1 = driver.findElement(input1Label);
 	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", section1Label1);
 	    section1Label1.click();
 
-	    // 3. Answer Field Handling
 	    WebElement input1Answer = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input1Answer));
 	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", input1Answer);
 
-	    String input1Value = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value;", input1Answer);
+	    
+	    String input1Value = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value || arguments[0].getAttribute('value');", input1Answer);
+	    System.out.println("Extracted value: '" + input1Value + "'");
+	    
 
 	    if (input1Value == null || input1Value.trim().isEmpty()) {
 	        input1Answer.sendKeys("Narola Infotech");
 	    }
 
-	    // 4. Comment Field Handling
-	    WebElement commentCountElement = wait.until(ExpectedConditions.presenceOfElementLocated(
-	        By.xpath("(//div[contains(@class,'button-list-right')]//span[contains(@class,'item-count-design')][1])[1]")
+	    WebElement comment1CountElement = wait.until(ExpectedConditions.presenceOfElementLocated(
+	        By.xpath("(//div[@class='button-list-right']//span[@class='item-count-design'])[1]")
 	    ));
 
-	    int commentCount = Integer.parseInt(commentCountElement.getText().trim());
+	    int comment1Count = Integer.parseInt(comment1CountElement.getText().trim());
+	    
+	    System.out.println(comment1Count);
 
 	    WebElement input1Comment = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input1Comment));
 	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", input1Comment);
 
-	    if (commentCount > 0) {
+	    if (comment1Count > 0) {
 	        String existingComment = input1Comment.getText();
 	        System.out.println("Existing Comment: " + existingComment);
 	    } else {
 	        String newComment = "Initial assessment comment for Narola Infotech";
 	        input1Comment.sendKeys(newComment);
+	        wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
 	        System.out.println("Added new comment: " + newComment);
 	    }
 
-	    // 5. Justification Field Handling
 	    WebElement input1Justification = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input1Justification));
 	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", input1Justification);
 
-	    String justificationValue = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value;", input1Justification);
+	    String justificationValue = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value || arguments[0].getAttribute('value');", input1Justification);
+	    System.out.println(justificationValue);
 
 	    if (justificationValue == null || justificationValue.trim().isEmpty()) {
 	        String justificationText = "Narola Infotech has demonstrated consistent expertise in delivering " +
@@ -141,238 +146,232 @@ public class AssessmentPage extends BasePage {
 	        input1Justification.sendKeys(justificationText);
 	    }
 
-	    // 6. Final loader wait
 	    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+	    
+	    
+	 // === SECTION 1.2 ===
+	    
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(input2Label));
+	    WebElement section1Label2 = driver.findElement(input2Label);
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", section1Label2);
+	    section1Label2.click();
+
+	    WebElement input2Answer = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input2Answer));
+	    String input2Value = input2Answer.getAttribute("value");
+	    if (input2Value == null || input2Value.trim().isEmpty()) {
+	        input2Answer.sendKeys("Darshak");
+	    }
+
+	    WebElement comment2CountElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//div[@class='button-list-right']//span[@class='item-count-design'])[5]")));
+	    
+	    int comment2Count = Integer.parseInt(comment2CountElement.getText().trim());
+	    WebElement input2Comment = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input2Comment));
+	    if (comment2Count > 0) {
+	        System.out.println("Existing Comment: " + input2Comment.getText());
+	    } else {
+	        input2Comment.sendKeys("Comment for Section 1.2");
+	        wait.until(ExpectedConditions.visibilityOfElementLocated(loader));
+	    }
+
+	    WebElement input2Justification = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input2Justification));
+	    String justification2Value = input2Justification.getAttribute("value");
+	    if (justification2Value == null || justification2Value.trim().isEmpty()) {
+	        input2Justification.sendKeys("Darshak Patel has in-depth knowledge...");
+	    }
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+
+
+	    // === SECTION 1.3 ===
+	    
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(input3Label));
+	    WebElement section1Label3 = driver.findElement(input3Label);
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", section1Label3);
+	    section1Label3.click();
+
+	    WebElement input3Answer = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input3Answer));
+	    String input3Value = input3Answer.getAttribute("value");
+	    if (input3Value == null || input3Value.trim().isEmpty()) {
+	        input3Answer.sendKeys("darshak143@yopmail.com");
+	    }
+
+	    WebElement comment3CountElement = wait.until(ExpectedConditions.presenceOfElementLocated(
+	        By.xpath("(//div[@class='button-list-right']//span[@class='item-count-design'])[9]")
+	    ));
+	    int comment3Count = Integer.parseInt(comment3CountElement.getText().trim());
+	    WebElement input3Comment = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input3Comment));
+	    if (comment3Count > 0) {
+	        System.out.println("Existing Comment: " + input3Comment.getText());
+	    } else {
+	        input3Comment.sendKeys("Comment for Section 1.3");
+	        wait.until(ExpectedConditions.visibilityOfElementLocated(loader));
+	    }
+
+	    WebElement input3Justification = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input3Justification));
+	    String justification3Value = input3Justification.getAttribute("value");
+	    if (justification3Value == null || justification3Value.trim().isEmpty()) {
+	        input3Justification.sendKeys("This email address ensures that...");
+	    }
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+
+
+	    // === SECTION 1.4 ===
+	    
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(input4Label));
+	    WebElement section1Label4 = driver.findElement(input4Label);
+	    section1Label4.click();
+
+	    WebElement input4Answer = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input4Answer));
+	    String input4Value = input4Answer.getAttribute("value");
+	    if (input4Value == null || input4Value.trim().isEmpty()) {
+	        input4Answer.sendKeys("8866180955");
+	    }
+
+	    WebElement comment4CountElement = wait.until(ExpectedConditions.presenceOfElementLocated(
+	        By.xpath("(//div[@class='button-list-right']//span[@class='item-count-design'])[13]")
+	    ));
+	    int comment4Count = Integer.parseInt(comment4CountElement.getText().trim());
+	    WebElement input4Comment = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input4Comment));
+	    if (comment4Count > 0) {
+	        System.out.println("Existing Comment: " + input4Comment.getText());
+	    } else {
+	        input4Comment.sendKeys("Comment for Section 1.4");
+	        wait.until(ExpectedConditions.visibilityOfElementLocated(loader));
+	    }
+
+	    WebElement input4Justification = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input4Justification));
+	    String justification4Value = input4Justification.getAttribute("value");
+	    if (justification4Value == null || justification4Value.trim().isEmpty()) {
+	        input4Justification.sendKeys("The phone number 8866180955 is provided as...");
+	    }
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+
+
+	    // === SECTION 1.5 ===
+	    
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(input5Label));
+	    WebElement section1Label5 = driver.findElement(input5Label);
+	    section1Label5.click();
+
+	    WebElement input5Answer = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input5Answer));
+	    String input5Value = input5Answer.getAttribute("value");
+	    if (input5Value == null || input5Value.trim().isEmpty()) {
+	        input5Answer.sendKeys("https://www.narolainfotech.com");
+	    }
+
+	    WebElement comment5CountElement = wait.until(ExpectedConditions.presenceOfElementLocated(
+	        By.xpath("(//div[@class='button-list-right']//span[@class='item-count-design'])[17]")
+	    ));
+	    int comment5Count = Integer.parseInt(comment5CountElement.getText().trim());
+	    WebElement input5Comment = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input5Comment));
+	    if (comment5Count > 0) {
+	        System.out.println("Existing Comment: " + input5Comment.getText());
+	    } else {
+	        input5Comment.sendKeys("Comment for Section 1.5");
+	        wait.until(ExpectedConditions.visibilityOfElementLocated(loader));
+	    }
+
+	    WebElement input5Justification = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input5Justification));
+	    String justification5Value = input5Justification.getAttribute("value");
+	    if (justification5Value == null || justification5Value.trim().isEmpty()) {
+	        input5Justification.sendKeys("This website serves as a verified source...");
+	    }
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+
+
+	    // === SECTION 1.6 ===
+	    
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(input6Label));
+	    WebElement section1Label6 = driver.findElement(input6Label);
+	    section1Label6.click();
+
+	    WebElement radioButton6 = wait.until(ExpectedConditions.elementToBeClickable(section1Input6Radio));
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", radioButton6);
+
+	    WebElement comment6CountElement = wait.until(ExpectedConditions.presenceOfElementLocated(
+	        By.xpath("(//div[@class='button-list-right']//span[@class='item-count-design'])[21]")
+	    ));
+	    int comment6Count = Integer.parseInt(comment6CountElement.getText().trim());
+	    WebElement input6Comment = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input6Comment));
+	    if (comment6Count > 0) {
+	        System.out.println("Existing Comment: " + input6Comment.getText());
+	    } else {
+	        input6Comment.sendKeys("Comment for Section 1.6");
+	        wait.until(ExpectedConditions.visibilityOfElementLocated(loader));
+	    }
+
+	    WebElement input6Justification = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input6Justification));
+	    String justification6Value = input6Justification.getAttribute("value");
+	    if (justification6Value == null || justification6Value.trim().isEmpty()) {
+	        input6Justification.sendKeys("The Education industry best represents...");
+	    }
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+
+
+	    // === SECTION 1.7 ===
+	    
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(input7Label));
+	    WebElement section1Label7 = driver.findElement(input7Label);
+	    section1Label7.click();
+
+	    WebElement input7Answer = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input7Answer));
+	    String input7Value = input7Answer.getAttribute("value");
+	    if (input7Value == null || input7Value.trim().isEmpty()) {
+	        input7Answer.sendKeys("2");
+	    }
+
+	    WebElement comment7CountElement = wait.until(ExpectedConditions.presenceOfElementLocated(
+	        By.xpath("(//div[@class='button-list-right']//span[@class='item-count-design'])[25]")
+	    ));
+	    int comment7Count = Integer.parseInt(comment7CountElement.getText().trim());
+	    WebElement input7Comment = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input7Comment));
+	    if (comment7Count > 0) {
+	        System.out.println("Existing Comment: " + input7Comment.getText());
+	    } else {
+	        input7Comment.sendKeys("Comment for Section 1.7");
+	        wait.until(ExpectedConditions.visibilityOfElementLocated(loader));
+	    }
+
+	    WebElement input7Justification = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input7Justification));
+	    String justification7Value = input7Justification.getAttribute("value");
+	    if (justification7Value == null || justification7Value.trim().isEmpty()) {
+	        input7Justification.sendKeys("This number reflects the current staffing...");
+	    }
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+
+
+	    // === SECTION 1.8 ===
+	    
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(input8Label));
+	    WebElement section1Label8 = driver.findElement(input8Label);
+	    section1Label8.click();
+
+	    WebElement input8Date = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input8Date));
+	    String input8DateValue = input8Date.getAttribute("value");
+	    if (input8DateValue == null || input8DateValue.trim().isEmpty()) {
+	        input8Date.sendKeys("12/31/2025");
+	    }
+
+	    WebElement comment8CountElement = wait.until(ExpectedConditions.presenceOfElementLocated(
+	        By.xpath("(//div[@class='button-list-right']//span[@class='item-count-design'])[29]")
+	    ));
+	    int comment8Count = Integer.parseInt(comment8CountElement.getText().trim());
+	    WebElement input8Comment = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input8Comment));
+	    if (comment8Count > 0) {
+	        System.out.println("Existing Comment: " + input8Comment.getText());
+	    } else {
+	        input8Comment.sendKeys("Comment for Section 1.8");
+	        wait.until(ExpectedConditions.visibilityOfElementLocated(loader));
+	    }
+
+	    WebElement input8Justification = wait.until(ExpectedConditions.visibilityOfElementLocated(section1Input8Justification));
+	    String justification8Value = input8Justification.getAttribute("value");
+	    if (justification8Value == null || justification8Value.trim().isEmpty()) {
+	        input8Justification.sendKeys("This number reflects the current staffing...");
+	    }
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));    
+	    
 	}
-	    
-	    
-//        
-//       // 1.2 
-//	    
-//	    wait.until(ExpectedConditions.visibilityOfElementLocated(input2Label));
-//
-//	    WebElement section1Label2 = driver.findElement(input2Label);
-//	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", section1Label2);
-//	    section1Label2.click();
-//
-//	    // Input Answer
-//	    WebElement input2Answer = driver.findElement(section1Input2Answer);
-////	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input2Answer);
-//	    input2Answer.clear();
-//	    Thread.sleep(2000);
-//	    input2Answer.sendKeys("Darshak");
-//
-//	    // Comment
-//	    WebElement input2Comment = driver.findElement(section1Input2Comment);
-//	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input2Comment);
-//
-//        String section1Comment2 = input2Comment.getText();
-//        Thread.sleep(2000);
-//        System.out.println(section1Comment2);
-//	    
-//	    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
-//
-//	    // Justification
-//	    WebElement input2Justification = driver.findElement(section1Input2Justification);
-//	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input2Justification);
-//	    input2Justification.clear();
-//	    Thread.sleep(2000);
-//	    input2Justification.sendKeys("Darshak Patel has in-depth knowledge of the assessment objectives and is responsible for facilitating the required information, clarifications, and responses throughout the assessment process.");
-//	    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader)); 
-//	    
-//	    
-//	     // 1.3
-//		 wait.until(ExpectedConditions.visibilityOfElementLocated(input3Label));
-//
-//	     // Label
-//		 WebElement section1Label3 = driver.findElement(input3Label);
-//		 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", section1Label3);
-//		 section1Label3.click();
-//
-//	     // Input Answer
-//		  WebElement input3Answer = driver.findElement(section1Input3Answer);
-////		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input3Answer);
-//		  input3Answer.clear();
-//		  Thread.sleep(2000);
-//		  input3Answer.sendKeys("darshak143@yopmail.com");
-//
-//	     // Comment
-//		  WebElement input3Comment = driver.findElement(section1Input3Comment);
-//		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input3Comment);
-//		  
-//	      String section1Comment3 = input3Comment.getText();
-//	      Thread.sleep(2000);
-//	      System.out.println(section1Comment3);
-//		  wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
-//
-//		 // Justification
-//		  WebElement input3Justification = driver.findElement(section1Input3Justification);
-//		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input3Justification);
-//		  input3Justification.clear();
-//		  Thread.sleep(2000);
-//		  input3Justification.sendKeys("This email address ensures that all communications, updates, and clarifications related to the assessment are directed to the responsible individual, facilitating prompt responses and efficient coordination.");
-//		  wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
-//		  
-//		  // 1.4
-//		  wait.until(ExpectedConditions.visibilityOfElementLocated(input4Label));
-//
-//		  // Label
-//	      WebElement section1Label4 = driver.findElement(input4Label);
-//		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", section1Label4);
-//		  section1Label4.click();
-//
-//		  // Input Answer
-//		  WebElement input4Answer = driver.findElement(section1Input4Answer);
-////		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input4Answer);
-//		  input4Answer.clear();
-//		  Thread.sleep(2000);
-//		  input4Answer.sendKeys("8866180955");
-//
-//		  // Comment
-//		  WebElement input4Comment = driver.findElement(section1Input4Comment);
-//		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input4Comment);
-//		  
-//	      String section1Comment4 = input4Comment.getText();
-//	      Thread.sleep(2000);
-//	      System.out.println(section1Comment4);
-//		  wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
-//
-//		  // Justification
-//		  WebElement input4Justification = driver.findElement(section1Input4Justification);
-//		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input4Justification);
-//		  input4Justification.clear();
-//		  Thread.sleep(2000);
-//		  input4Justification.sendKeys("The phone number 8866180955 is provided as the direct contact for the primary individual responsible for this assessment.");
-//		  wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
-//		  
-//		  // 1.5
-//		  wait.until(ExpectedConditions.visibilityOfElementLocated(input5Label));
-//
-//		  // Label
-//	      WebElement section1Label5 = driver.findElement(input5Label);
-//		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", section1Label5);
-//		  section1Label5.click();
-//
-//		  // Input Answer
-//		  WebElement input5Answer = driver.findElement(section1Input5Answer);
-////		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input5Answer);
-//		  input5Answer.clear();
-//		  Thread.sleep(2000);
-//		  input5Answer.sendKeys("https://www.narolainfotech.com");
-//
-//		  // Comment
-//		  WebElement input5Comment = driver.findElement(section1Input5Comment);
-//		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input5Comment);
-//	      String section1Comment5 = input5Comment.getText();
-//	      Thread.sleep(2000);
-//	      System.out.println(section1Comment5);
-//		  wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
-//
-//		  // Justification
-//		  WebElement input5Justification = driver.findElement(section1Input5Justification);
-//		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input5Justification);
-//		  input5Justification.clear();
-//		  input5Justification.sendKeys("This website serves as a verified source of information about Narola Infotech's services, expertise, and contact details.");
-//		  wait.until(ExpectedConditions.invisibilityOfElementLocated(loader)); 
-//		  
-//		  // 1.6
-//		  wait.until(ExpectedConditions.visibilityOfElementLocated(input6Label));
-//
-//		  // Label
-//	      WebElement section1Label6 = driver.findElement(input6Label);
-//		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", section1Label6);
-//		  section1Label6.click();
-//
-//          // Input Radio
-//		  wait.until(ExpectedConditions.elementToBeClickable(section1Input6Radio));
-//		  WebElement radioButton6 = driver.findElement(section1Input6Radio);
-//		  ((JavascriptExecutor) driver).executeScript("arguments[0].click();", radioButton6);
-//		  Thread.sleep(2000);
-//		  
-//		  
-//		  // Comment
-//		  WebElement input6Comment = driver.findElement(section1Input6Comment);
-//		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input6Comment);
-//	      String section1Comment6 = input6Comment.getText();
-//	      Thread.sleep(2000);
-//	      System.out.println(section1Comment6);
-//		  wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
-//
-//		  // Justification
-//		  WebElement input6Justification = driver.findElement(section1Input6Justification);
-//		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input6Justification);
-//		  input6Justification.clear();
-//		  Thread.sleep(2000);
-//		  input6Justification.sendKeys("The Education industry best represents our organization because our core operations, client base, and service offerings are focused on enhancing learning experiences, academic management, and educational technology.");
-//		  wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
-//		    
-//		  // 1.7 
-//		  wait.until(ExpectedConditions.visibilityOfElementLocated(input7Label));
-//
-//		  // Label
-//	      WebElement section1Label7 = driver.findElement(input7Label);
-//		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", section1Label7);
-//		  section1Label7.click();
-//
-//		  // Input Answer
-//		  WebElement input7Answer = driver.findElement(section1Input7Answer);
-////		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input7Answer);
-//		  input7Answer.clear();
-//		  Thread.sleep(2000);
-//		  input7Answer.sendKeys("2");
-//          
-//		  // Comment
-//		  WebElement input7Comment = driver.findElement(section1Input7Comment);
-//		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input7Comment);
-//	      String section1Comment7 = input7Comment.getText();
-//	      Thread.sleep(2000);
-//	      System.out.println(section1Comment7);
-//		  wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
-//
-//		  // Justification
-//		  WebElement input7Justification = driver.findElement(section1Input7Justification);
-//		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input7Justification);
-//		  input7Justification.clear();
-//		  Thread.sleep(2000);
-//		  input7Justification.sendKeys("This number reflects the current staffing level as a small team is sufficient for handling our focused range of services and client requirements.");
-//		  wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
-//		  
-//		  // 1.8 
-//		  wait.until(ExpectedConditions.visibilityOfElementLocated(input8Label));
-//
-//		  // Label
-//	      WebElement section1Label8 = driver.findElement(input8Label);
-//		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", section1Label8);
-//		  section1Label8.click();
-//
-//		  // Date Picker
-//		  WebElement input8Date = driver.findElement(section1Input8Date);
-//		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input8Date);
-//		  input8Date.clear();
-//		  Thread.sleep(2000);
-//		  input8Date.sendKeys("12/31/2025");
-//          
-//		  
-//		  // Comment
-//		  WebElement input8Comment = driver.findElement(section1Input8Comment);
-//		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input8Comment);
-//
-//	      String section1Comment8 = input8Comment.getText();
-//	      Thread.sleep(2000);
-//	      System.out.println(section1Comment8);
-//		  wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
-//
-//		  // Justification
-//		  WebElement input8Justification = driver.findElement(section1Input8Justification);
-//		  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", input8Justification);
-//		  input8Justification.clear();
-//		  Thread.sleep(2000);
-//		  input8Justification.sendKeys("This number reflects the current staffing level as a small team is sufficient for handling our focused range of services and client requirements.");
-//		  wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
-//		  	 	    
-//	}
-
-
+	
 	
 	public void nextBtn() throws InterruptedException {
 		
