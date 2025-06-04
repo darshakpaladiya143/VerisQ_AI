@@ -44,6 +44,7 @@ public abstract class BasePage {
 	}
 	
 	public void clickThirdPartyRisk() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
 	    WebElement thirdPartyButton = wait.until(ExpectedConditions.visibilityOfElementLocated(thirdPartyMenu));
 	    thirdPartyButton.click();   
 	}
@@ -61,10 +62,10 @@ public abstract class BasePage {
 		driver.findElement(profileDiv).click();
 	}
 	
-	public void clickAssResponseMenu() {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(assResponseMenu));
-		driver.findElement(assResponseMenu).click();
-	}
+//	public void clickAssResponseMenu() {
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(assResponseMenu));
+//		driver.findElement(assResponseMenu).click();
+//	}
 	
 	
 }

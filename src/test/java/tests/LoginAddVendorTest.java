@@ -3,6 +3,8 @@ package tests;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import base.BaseTest;
@@ -10,6 +12,11 @@ import pages.LoginPage;
 import pages.VendorPage;
 
 public class LoginAddVendorTest extends BaseTest {
+	
+    @BeforeMethod
+    public void setUp() {
+        launchUrl("mainAppUrl");
+    }
 	
 	
 	@Test
@@ -27,14 +34,13 @@ public class LoginAddVendorTest extends BaseTest {
 		
 		login.loginEmail("darshak20250521162148@yopmail.com");
 		login.loginPassword("Test@1234");
-		login.submitLogin();
+		login.submitLogin();		
 		
 		login.getLoggedInUserName();
 		login.sideMenuWrap();
 		login.clickThirdPartyRisk();
 		login.visibilityOfGraph();
 		login.sideMenuWrap();
-		
 		login.clickManageVendor();
 		
 		// Form - Step : 1 
@@ -66,6 +72,13 @@ public class LoginAddVendorTest extends BaseTest {
         vendor.setVendorPassword(vendorEmail);
         
 	}
+	
+	
+
+    @AfterMethod
+    public void tearDown() {
+        quitDriver();
+    }
 
 	
 }

@@ -3,6 +3,8 @@ package tests;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import base.BaseTest;
@@ -10,6 +12,11 @@ import pages.SignUpPage;
 import utils.TestDataGenerator;
 
 public class TenantRegistrationTest extends BaseTest{
+	
+    @BeforeMethod
+    public void setUp() {
+        launchUrl("mainAppUrl");
+    }
 	
 	
 	@Test
@@ -51,5 +58,12 @@ public class TenantRegistrationTest extends BaseTest{
 	    signUp.verifyEmailAndLogin(email);
 
 	}
+	
+	
+    @AfterMethod
+    public void tearDown() {
+        quitDriver();
+    }
+	
 
 }

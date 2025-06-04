@@ -11,6 +11,9 @@ public class LoginPage extends BasePage {
 	private By inputEamil = By.xpath("//input[@id='userName']");
     private By inputPassword = By.xpath("//input[@id='password']");
     private By btnLogin = By.xpath("//button[normalize-space()='Login']");  
+	private By loader = By.cssSelector("div.loader-page-section");
+    
+    //button[normalize-space()='Login']
     public LoginPage (WebDriver driver , WebDriverWait wait) {
 	   super(driver, wait);
 	}
@@ -19,7 +22,7 @@ public class LoginPage extends BasePage {
 	public void loginEmail(String email) throws InterruptedException {
 	   wait.until(ExpectedConditions.visibilityOfElementLocated(inputEamil));
 	   driver.findElement(inputEamil).sendKeys(email);	
-	   Thread.sleep(2000);
+	   Thread.sleep(3000);
 	}
 	
 	
@@ -30,14 +33,13 @@ public class LoginPage extends BasePage {
 	}
 	
 	public void submitLogin() throws InterruptedException {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(btnLogin));
 		driver.findElement(btnLogin).click();
-		Thread.sleep(4000);
+//		Thread.sleep(4000);
 	}
 	
 	public void visibilityOfGraph() throws InterruptedException {
-//		wait.until(ExpectedConditions.visibilityOfElementLocated(graphReact));
-
         wait.until(d -> {
         JavascriptExecutor js = (JavascriptExecutor) d;
         Object result = js.executeScript(
@@ -46,8 +48,6 @@ public class LoginPage extends BasePage {
         );
         return Boolean.TRUE.equals(result);
         });
-		
-		
 	}
 			
 }

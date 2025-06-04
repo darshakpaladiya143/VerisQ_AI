@@ -2,24 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-06-02T10:57:15 IST" name="Default suite" finished-at="2025-06-02T10:58:42 IST" duration-ms="86809">
+  <suite started-at="2025-06-04T12:54:33 IST" name="Default suite" finished-at="2025-06-04T12:55:21 IST" duration-ms="48644">
     <groups>
     </groups>
-    <test started-at="2025-06-02T10:57:15 IST" name="Default test" finished-at="2025-06-02T10:58:42 IST" duration-ms="86809">
-      <class name="tests.LoginAddVendorTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.LoginAddVendorTest@393671df]" started-at="2025-06-02T10:57:15 IST" name="setUp" finished-at="2025-06-02T10:57:22 IST" duration-ms="7115" status="PASS">
+    <test started-at="2025-06-04T12:54:33 IST" name="Default test" finished-at="2025-06-04T12:55:21 IST" duration-ms="48644">
+      <class name="tests.DefaultAssessmentTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.DefaultAssessmentTest@56620197]" started-at="2025-06-04T12:54:33 IST" name="setUp" finished-at="2025-06-04T12:54:49 IST" duration-ms="16606" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="loginAddVednor()[pri:0, instance:tests.LoginAddVendorTest@393671df]" started-at="2025-06-02T10:57:22 IST" name="loginAddVednor" finished-at="2025-06-02T10:58:42 IST" duration-ms="79613" status="PASS">
+        <test-method signature="performDefaultAssessment()[pri:0, instance:tests.DefaultAssessmentTest@56620197]" started-at="2025-06-04T12:54:49 IST" name="performDefaultAssessment" finished-at="2025-06-04T12:55:21 IST" duration-ms="31971" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginAddVednor -->
-        <test-method is-config="true" signature="getDriver()[pri:0, instance:tests.LoginAddVendorTest@393671df]" started-at="2025-06-02T10:58:42 IST" name="getDriver" finished-at="2025-06-02T10:58:42 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getDriver -->
-      </class> <!-- tests.LoginAddVendorTest -->
+        </test-method> <!-- performDefaultAssessment -->
+      </class> <!-- tests.DefaultAssessmentTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

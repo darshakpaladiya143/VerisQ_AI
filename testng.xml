@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Verisq Test Suite" verbose="1" parallel="false">
+  
+  <test name="Main Application Tests">
+    <parameter name="baseUrl" value="${baseUrl}"/>
+    <classes>
+      <class name="tests.TenantRegistrationTest"/>
+      <class name="tests.LoginAddVendorTest"/>
+    </classes>
+  </test>
+  
+  <test name="Vendor Responder Tests">
+    <parameter name="baseUrl" value="${baseUrl}"/>
+    <classes>
+      <class name="tests.DefaultAssessmentTest"/>
+    </classes>
+  </test>
+  
+</suite>
