@@ -61,9 +61,53 @@ public class AssessmentPage extends BasePage {
 	private By loader = By.cssSelector("div.loader-page-section");
 	
 	
-	// Section 2 
+	// Section 2 Label
 	
 	private By section2Header = By.xpath("//span[@class='e-label' and text()='GOVERN (GV)']");
+	private By section2input1Label =By.xpath("(//label[text()='2.1 '])[1]") ;
+	private By section2input2Label =By.xpath("(//label[text()='2.2 '])[1]") ;
+	private By section2input3Label =By.xpath("(//label[text()='2.3 '])[1]") ;
+	private By section2input4Label =By.xpath("(//label[text()='2.4 '])[1]") ;
+	private By section2input5Label =By.xpath("(//label[text()='2.5 '])[1]") ;
+	private By section2input6Label =By.xpath("(//label[text()='2.6 '])[1]") ;
+	private By section2input7Label =By.xpath("(//label[text()='2.7 '])[1]") ;
+	private By section2input8Label =By.xpath("(//label[text()='2.8 '])[1]") ;
+	
+	// Section 2 Input
+	
+	private By section2Input1Radio = By.xpath("(//label[span[text()='No']])[1]");
+	private By section2Input1Comment = By.xpath("(//div[@id='question_15870_rte-editable'])[1]");
+	private By section2Input1Justification = By.xpath("(//div[@id='question_15870_rte-editable'])[2]");
+	
+//	private By section2Input2Answer = By.xpath("");
+//	private By section2Input2Comment = By.xpath("");
+//	private By section2Input2Justification = By.xpath("");
+//	
+//	private By section2Input2Answer = By.xpath("");
+//	private By section2Input2Comment = By.xpath("");
+//	private By section2Input2Justification = By.xpath("");
+//	
+//	private By section2Input2Answer = By.xpath("");
+//	private By section2Input2Comment = By.xpath("");
+//	private By section2Input2Justification = By.xpath("");
+//	
+//	private By section2Input2Answer = By.xpath("");
+//	private By section2Input2Comment = By.xpath("");
+//	private By section2Input2Justification = By.xpath("");
+//	
+//	private By section2Input2Answer = By.xpath("");
+//	private By section2Input2Comment = By.xpath("");
+//	private By section2Input2Justification = By.xpath("");
+//	
+//	private By section2Input2Answer = By.xpath("");
+//	private By section2Input2Comment = By.xpath("");
+//	private By section2Input2Justification = By.xpath("");
+//	
+//	private By section2Input2Answer = By.xpath("");
+//	private By section2Input2Comment = By.xpath("");
+//	private By section2Input2Justification = By.xpath("");
+	
+	
 	
 	
 	public AssessmentPage(WebDriver driver, WebDriverWait wait) {
@@ -554,7 +598,65 @@ public class AssessmentPage extends BasePage {
 		Assert.assertEquals(actualHeader,expectedHeader);
 	}
 	
-	
+	public void section2Answer() throws InterruptedException {
+		
+		// === SECTION 2.1 ===
+		
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(section2input1Label));
+	    WebElement section2Label1 = driver.findElement(section2input1Label);
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", section2Label1);
+	    section2Label1.click();
+	    
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input1Radio));
+	    
+	    WebElement radio1Element = driver.findElement(section2Input1Radio);
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    js.executeScript("arguments[0].scrollIntoView({block: 'center'});", radio1Element);
+	    js.executeScript("arguments[0].click();", radio1Element);
+	    
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+
+	    WebElement comment1CountElement = wait.until(ExpectedConditions.presenceOfElementLocated(
+	        By.xpath("(//div[@class='button-list-right']//span[@class='item-count-design'])[1]")
+	    ));
+
+	    int comment1Count = Integer.parseInt(comment1CountElement.getText().trim());
+	    System.out.println(comment1Count);
+	    Thread.sleep(2000);
+	    
+	    WebElement input1Comment = wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input1Comment));
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", input1Comment);
+	    
+	    if (comment1Count > 0) {
+	        String existingComment = input1Comment.getText();
+	        System.out.println("Existing Comment: " + existingComment);
+	    } else {
+	        String newComment = "our cybersecurity strategy is formally documented and closely aligned with our business goals.";
+	        input1Comment.sendKeys(newComment);
+	        Thread.sleep(1000);
+	        wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+	        System.out.println("Added new comment in section 2.1 : " + newComment);
+	    }
+	    
+	    
+	    WebElement input1Justification = wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input1Justification));
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", input1Justification);
+	    	    	    
+	    String justificationValue = (String) ((JavascriptExecutor) driver).executeScript("arguments[0].innerHTML = '';", input1Justification);
+	    System.out.println("Justification (cleaned): '" + justificationValue + "'");
+
+
+	    if (justificationValue == null || justificationValue.isEmpty()) {
+	    	
+	        String justification1Text = "Our organization has developed a comprehensive cybersecurity strategy that is formally documented and reviewed regularly. This strategy is designed to align with core business objectives, ensuring the protection of critical assets, supporting regulatory compliance, and enabling secure digital transformation across departments.";
+
+	        input1Justification.sendKeys(justification1Text);
+		    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+		    System.out.println("Added justification in section 2.1 : " + justification1Text);
+	    }
+	    
+		
+	}
 	
 	
 }

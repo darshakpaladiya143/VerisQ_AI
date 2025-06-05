@@ -30,14 +30,28 @@ public class DefaultAssessmentTest extends BaseTest {
 		assessment.clickOnDefaultAssessment();		
 		assessment.getWaitForResponder();
 		
-		// Section -1 
+		// Section - 1 
 		
 		assessment.section1Answer();
 		assessment.nextBtn();
 		assessment.section2Header();
 		
+		// Section - 2
+		
+		assessment.section2Answer();
+//		assessment.nextBtn();
+//		assessment.section3Header();
+		
+		
+		
 		
 	}
+	
+	
+	
+	
+	
+	
 	
 //    @AfterMethod
 //    public void tearDown() {
