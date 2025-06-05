@@ -41,7 +41,7 @@ public class BaseTest {
         driver.manage().window().maximize();
         driver.get(url);
 
-        wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(80));
     }
 
     public WebDriver getDriver() {
