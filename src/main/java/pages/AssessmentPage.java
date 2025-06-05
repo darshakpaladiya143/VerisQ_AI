@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class AssessmentPage extends BasePage {
 	
@@ -58,6 +59,11 @@ public class AssessmentPage extends BasePage {
 	private By section1Input8Justification =By.xpath("(//div[@id='question_15869_rte-editable'])[2]");
 	
 	private By loader = By.cssSelector("div.loader-page-section");
+	
+	
+	// Section 2 
+	
+	private By section2Header = By.xpath("//span[@class='e-label' and text()='GOVERN (GV)']");
 	
 	
 	public AssessmentPage(WebDriver driver, WebDriverWait wait) {
@@ -539,6 +545,16 @@ public class AssessmentPage extends BasePage {
         nextButton.click();
         Thread.sleep(2000);
 	}
+	
+	public void section2Header() {
+		String expectedHeader = "GOVERN (GV)";
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(section2Header));
+		String actualHeader = driver.findElement(section2Header).getText();
+		System.out.println(actualHeader);
+		Assert.assertEquals(actualHeader,expectedHeader);
+	}
+	
+	
 	
 	
 }

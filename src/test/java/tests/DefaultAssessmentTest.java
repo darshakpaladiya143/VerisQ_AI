@@ -24,8 +24,7 @@ public class DefaultAssessmentTest extends BaseTest {
 		
 		login.loginEmail("flyingqa20250604181540@yopmail.com");
 		login.loginPassword("Test@1234");
-		login.submitLogin();
-		
+		login.submitLogin();	
 		login.getLoggedInUserName();
 
 		assessment.clickOnDefaultAssessment();		
@@ -35,6 +34,8 @@ public class DefaultAssessmentTest extends BaseTest {
 		
 		assessment.section1Answer();
 		assessment.nextBtn();
+		assessment.section2Header();
+		
 		
 	}
 	
