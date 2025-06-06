@@ -32,7 +32,7 @@ public class LoginAddVendorTest extends BaseTest {
 		LoginPage login = new LoginPage(driver,wait);
 		VendorPage vendor = new VendorPage(driver,wait);
 		
-		login.loginEmail("darshak20250521162148@yopmail.com");
+		login.loginEmail("darshak20250606162951@yopmail.com");
 		login.loginPassword("Test@1234");
 		login.submitLogin();		
 		

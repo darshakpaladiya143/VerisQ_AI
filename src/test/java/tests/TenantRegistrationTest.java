@@ -11,7 +11,7 @@ import base.BaseTest;
 import pages.SignUpPage;
 import utils.TestDataGenerator;
 
-public class TenantRegistrationTest extends BaseTest{
+public class TenantRegistrationTest extends BaseTest {
 	
     @BeforeMethod
     public void setUp() {

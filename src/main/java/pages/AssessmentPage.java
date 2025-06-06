@@ -12,7 +12,7 @@ import org.testng.Assert;
 public class AssessmentPage extends BasePage {
 	
 	
-	private By templateCell  = By.xpath("//td[contains(@class, 'e-templatecell')]//div[contains(text(),'FlyingQA_20250604181540 Verisq TPRM-NIST-CSF-2-0 Autoscored')]");
+	private By templateCell  = By.xpath("//td[contains(@class, 'e-templatecell')]//div[contains(text(),'FlyingQA_20250606163853 Verisq TPRM-NIST-CSF-2-0 Autoscored')]");
 	
 	// Section 1 Label 
 	
@@ -26,37 +26,37 @@ public class AssessmentPage extends BasePage {
 	private By input8Label = By.xpath("(//label[text()='1.8 '])[1]");
 	
 	// Section 1 Input Field
-	private By section1Input1Answer = By.xpath("//input[@name='question_15862']");
-	private By section1Input1Comment = By.xpath("(//div[@id='question_15862_rte-editable'])[1]");
-	private By section1Input1Justification = By.xpath("(//div[@id='question_15862_rte-editable'])[2]");
+	private By section1Input1Answer = By.xpath("(//input[@aria-label='textbox' and @placeholder='Enter your answer'])[1]");
+	private By section1Input1Comment = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[1]");
+	private By section1Input1Justification = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[2]");
 	
-	private By section1Input2Answer =By.xpath("//input[@id='question_15863']");
-	private By section1Input2Comment = By.xpath("(//div[@id='question_15863_rte-editable'])[1]");
-	private By section1Input2Justification =By.xpath("(//div[@id='question_15863_rte-editable'])[2]");
+	private By section1Input2Answer =By.xpath("(//input[@aria-label='textbox' and @placeholder='Enter your answer'])[2]");
+	private By section1Input2Comment = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[3]");
+	private By section1Input2Justification =By.xpath("(//div[@class='e-content' and @contenteditable='true'])[4]");
 	
-	private By section1Input3Answer = By.xpath("//input[@id='question_15864']");
-	private By section1Input3Comment = By.xpath("(//div[@id='question_15864_rte-editable'])[1]");
-	private By section1Input3Justification =By.xpath("(//div[@id='question_15864_rte-editable'])[2]");
+	private By section1Input3Answer = By.xpath("(//input[@aria-label='textbox' and @placeholder='Enter your answer'])[3]");
+	private By section1Input3Comment = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[5]");
+	private By section1Input3Justification =By.xpath("(//div[@class='e-content' and @contenteditable='true'])[6]");
 	
-	private By section1Input4Answer = By.xpath("//input[@id='question_15865']");
-	private By section1Input4Comment = By.xpath("(//div[@id='question_15865_rte-editable'])[1]");
-	private By section1Input4Justification = By.xpath("(//div[@id='question_15865_rte-editable'])[2]");
+	private By section1Input4Answer = By.xpath("(//input[@aria-label='textbox' and @placeholder='Enter your answer'])[4]");
+	private By section1Input4Comment = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[7]");
+	private By section1Input4Justification = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[8]");
 	
-	private By section1Input5Answer = By.xpath("//input[@id='question_15866']");
-	private By section1Input5Comment = By.xpath("(//div[@id='question_15866_rte-editable'])[1]");
-	private By section1Input5Justification =By.xpath("(//div[@id='question_15866_rte-editable'])[2]");
+	private By section1Input5Answer = By.xpath("(//input[@aria-label='textbox' and @placeholder='Enter your answer'])[5]");
+	private By section1Input5Comment = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[9]");
+	private By section1Input5Justification =By.xpath("(//div[@class='e-content' and @contenteditable='true'])[10]");
 	
 	private By section1Input6Radio = By.xpath("//label[span[normalize-space(text())='Education']]");
-	private By section1Input6Comment = By.xpath("(//div[@id='question_15867_rte-editable'])[1]");
-	private By section1Input6Justification =By.xpath("(//div[@id='question_15867_rte-editable'])[2]");
+	private By section1Input6Comment = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[11]");
+	private By section1Input6Justification =By.xpath("(//div[@class='e-content' and @contenteditable='true'])[12]");
 	
-	private By section1Input7Answer = By.xpath("//input[@id='question_15868']");
-	private By section1Input7Comment = By.xpath("(//div[@id='question_15868_rte-editable'])[1]");
-	private By section1Input7Justification =By.xpath("(//div[@id='question_15868_rte-editable'])[2]");
+	private By section1Input7Answer = By.xpath("//input[@class='e-control e-numerictextbox e-lib e-input' and @placeholder='Enter number']");
+	private By section1Input7Comment = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[13]");
+	private By section1Input7Justification =By.xpath("(//div[@class='e-content' and @contenteditable='true'])[14]");
 	
-	private By section1Input8Date = By.xpath("//input[@id='question_15869']");
-	private By section1Input8Comment = By.xpath("(//div[@id='question_15869_rte-editable'])[1]");
-	private By section1Input8Justification =By.xpath("(//div[@id='question_15869_rte-editable'])[2]");
+	private By section1Input8Date = By.xpath("//input[@class='e-control e-datepicker e-lib e-input e-keyboard' and @placeholder='Select date']");
+	private By section1Input8Comment = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[15]");
+	private By section1Input8Justification =By.xpath("(//div[@class='e-content' and @contenteditable='true'])[16]");
 	
 	private By loader = By.cssSelector("div.loader-page-section");
 	
@@ -76,37 +76,36 @@ public class AssessmentPage extends BasePage {
 	// Section 2 Input
 	
 	private By section2Input1Radio = By.xpath("(//label[span[text()='No']])[1]");
-	private By section2Input1Comment = By.xpath("(//div[@id='question_15870_rte-editable'])[1]");
-	private By section2Input1Justification = By.xpath("(//div[@id='question_15870_rte-editable'])[2]");
+	private By section2Input1Comment = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[1]");
+	private By section2Input1Justification = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[2]");
 	
-//	private By section2Input2Answer = By.xpath("");
-//	private By section2Input2Comment = By.xpath("");
-//	private By section2Input2Justification = By.xpath("");
-//	
-//	private By section2Input2Answer = By.xpath("");
-//	private By section2Input2Comment = By.xpath("");
-//	private By section2Input2Justification = By.xpath("");
-//	
-//	private By section2Input2Answer = By.xpath("");
-//	private By section2Input2Comment = By.xpath("");
-//	private By section2Input2Justification = By.xpath("");
-//	
-//	private By section2Input2Answer = By.xpath("");
-//	private By section2Input2Comment = By.xpath("");
-//	private By section2Input2Justification = By.xpath("");
-//	
-//	private By section2Input2Answer = By.xpath("");
-//	private By section2Input2Comment = By.xpath("");
-//	private By section2Input2Justification = By.xpath("");
-//	
-//	private By section2Input2Answer = By.xpath("");
-//	private By section2Input2Comment = By.xpath("");
-//	private By section2Input2Justification = By.xpath("");
-//	
-//	private By section2Input2Answer = By.xpath("");
-//	private By section2Input2Comment = By.xpath("");
-//	private By section2Input2Justification = By.xpath("");
+	private By section2Input2Radio = By.xpath("//span[normalize-space(text())='Annually']");
+	private By section2Input2Comment = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[3]");
+	private By section2Input2Justification = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[4]");
+
+	private By section2Input3Radio = By.xpath("(//label[span[text()='No']])[2]");
+	private By section2Input3Comment = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[5]");
+	private By section2Input3Justification = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[6]");
+
+	private By section2Input4Radio = By.xpath("(//label[span[text()='No']])[3]");
+	private By section2Input4Comment = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[7]");
+	private By section2Input4Justification = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[8]");
 	
+	private By section2Input5Answer = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[9]");
+	private By section2Input5Comment = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[10]");
+	private By section2Input5Justification = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[11]");
+
+	private By section2Input6Answer = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[12]");
+	private By section2Input6Comment = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[13]");
+	private By section2Input6Justification = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[14]");
+
+	private By section2Input7Answer = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[15]");
+	private By section2Input7Comment = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[16]");
+	private By section2Input7Justification = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[17]");
+
+	private By section2Input8Radio = By.xpath("(//label[span[text()='No']])[4]");
+	private By section2Input8Comment = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[18]");
+	private By section2Input8Justification = By.xpath("(//div[@class='e-content' and @contenteditable='true'])[19]");
 	
 	
 	
@@ -631,9 +630,8 @@ public class AssessmentPage extends BasePage {
 	        String existingComment = input1Comment.getText();
 	        System.out.println("Existing Comment: " + existingComment);
 	    } else {
-	        String newComment = "our cybersecurity strategy is formally documented and closely aligned with our business goals.";
+	        String newComment = "Our cybersecurity strategy is formally documented and closely aligned with our business goals.";
 	        input1Comment.sendKeys(newComment);
-	        Thread.sleep(1000);
 	        wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
 	        System.out.println("Added new comment in section 2.1 : " + newComment);
 	    }
@@ -647,16 +645,241 @@ public class AssessmentPage extends BasePage {
 
 
 	    if (justificationValue == null || justificationValue.isEmpty()) {
-	    	
-	        String justification1Text = "Our organization has developed a comprehensive cybersecurity strategy that is formally documented and reviewed regularly. This strategy is designed to align with core business objectives, ensuring the protection of critical assets, supporting regulatory compliance, and enabling secure digital transformation across departments.";
-
-	        input1Justification.sendKeys(justification1Text);
-		    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+	        String justification1Text = "Our organization has developed a comprehensive cybersecurity strategy that is formally documented and reviewed regularly.";
+	        input1Justification.sendKeys(justification1Text);		   
+	        wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
 		    System.out.println("Added justification in section 2.1 : " + justification1Text);
 	    }
 	    
+	    
+		// === SECTION 2.2 ===
 		
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(section2input2Label));
+	    WebElement section2Label2 = driver.findElement(section2input2Label);
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", section2Label2);
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", section2Label2);
+	    
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input2Radio));
+	    
+	    WebElement radio2Element = driver.findElement(section2Input2Radio);
+	    JavascriptExecutor js2 = (JavascriptExecutor) driver;
+	    js2.executeScript("arguments[0].scrollIntoView({block: 'center'});", radio2Element);
+	    js2.executeScript("arguments[0].click();", radio2Element);
+	    
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+	    Thread.sleep(1000);
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+
+	    WebElement comment2CountElement = wait.until(ExpectedConditions.presenceOfElementLocated(
+	        By.xpath("(//div[@class='button-list-right']//span[@class='item-count-design'])[5]")
+	    ));
+
+	    int comment2Count = Integer.parseInt(comment2CountElement.getText().trim());
+	    System.out.println(comment2Count);
+	    Thread.sleep(2000);
+	    
+	    WebElement input2Comment = wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input2Comment));
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", input2Comment);
+	    
+	    if (comment2Count > 0) {
+	        String existingComment = input2Comment.getText();
+	        System.out.println("Existing Comment: " + existingComment);
+	    } else {
+	    	wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input2Comment));
+	        String newComment = "Annual review aligns with industry best practices and regulatory requirements.";
+	        input2Comment.sendKeys(newComment);
+	        wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+	        System.out.println("Added new comment in section 2.2 : " + newComment);
+	    }
+	    
+	    
+	    WebElement input2Justification = wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input2Justification));
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", input2Justification);
+	    	    	    
+	    String justification2Value = (String) ((JavascriptExecutor) driver).executeScript("arguments[0].innerHTML = '';", input2Justification);
+	    System.out.println("Justification (cleaned): '" + justification2Value + "'");
+
+
+	    if (justification2Value == null || justification2Value.isEmpty()) {
+	    	
+	        String justification2Text = "Annual ensures consistent evaluation while meeting compliance standards (ISO 27001, NIST CSF) and adapting to emerging threats.";
+	        input2Justification.sendKeys(justification2Text);
+		    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+		    System.out.println("Added justification in section 2.2 : " + justification2Text);
+	    }
+	    
+	   
+		// === SECTION 2.3 ===
+		
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(section2input3Label));
+	    WebElement section2Label3 = driver.findElement(section2input3Label);
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", section2Label3);
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", section2Label3);
+
+//	    section2Label3.click();
+	    
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input3Radio));
+	    
+	    WebElement radio3Element = driver.findElement(section2Input3Radio);
+	    JavascriptExecutor js3 = (JavascriptExecutor) driver;
+	    js3.executeScript("arguments[0].scrollIntoView({block: 'center'});", radio3Element);
+	    js3.executeScript("arguments[0].click();", radio3Element);
+	    
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+
+	    WebElement comment3CountElement = wait.until(ExpectedConditions.presenceOfElementLocated(
+	        By.xpath("(//div[@class='button-list-right']//span[@class='item-count-design'])[9]")
+	    ));
+
+	    int comment3Count = Integer.parseInt(comment3CountElement.getText().trim());
+	    System.out.println(comment3Count);
+	    Thread.sleep(2000);
+	    
+	    WebElement input3Comment = wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input3Comment));
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", input3Comment);
+	    
+	    if (comment3Count > 0) {
+	        String existingComment = input3Comment.getText();
+	        System.out.println("Existing Comment: " + existingComment);
+	    } else {	    	
+	    	wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input3Comment));
+	        String newComment = "At present, the organization has not established executive-level oversight for cybersecurity.";
+	        input3Comment.sendKeys(newComment);
+	        Thread.sleep(1000);
+	        wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+	        System.out.println("Added new comment in section 2.3 : " + newComment);
+	    }
+	    
+	    
+	    WebElement input3Justification = wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input3Justification));
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", input3Justification);
+	    	    	    
+	    String justification3Value = (String) ((JavascriptExecutor) driver).executeScript("arguments[0].innerHTML = '';", input3Justification);
+	    System.out.println("Justification (cleaned): '" + justification3Value + "'");
+
+
+	    if (justification3Value == null || justification3Value.isEmpty()) {
+	    		    	
+	        String justification3Text = "Currently, there is no dedicated executive role overseeing cybersecurity risks";
+
+	        input3Justification.sendKeys(justification3Text);
+		    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+		    System.out.println("Added justification in section 2.3 : " + justification3Text);
+	    }
+	    
+	    
+		// === SECTION 2.4 ===
+		
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(section2input4Label));
+	    WebElement section2Label4 = driver.findElement(section2input4Label);
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", section2Label4);
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", section2Label4);
+
+	    
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input4Radio));
+	    
+	    WebElement radio4Element = driver.findElement(section2Input4Radio);
+	    JavascriptExecutor js4 = (JavascriptExecutor) driver;
+	    js4.executeScript("arguments[0].scrollIntoView({block: 'center'});", radio4Element);
+	    js4.executeScript("arguments[0].click();", radio4Element);
+	    
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+
+	    WebElement comment4CountElement = wait.until(ExpectedConditions.presenceOfElementLocated(
+	        By.xpath("(//div[@class='button-list-right']//span[@class='item-count-design'])[13]")
+	    ));
+
+	    int comment4Count = Integer.parseInt(comment4CountElement.getText().trim());
+	    System.out.println(comment4Count);
+	    Thread.sleep(2000);
+	    
+	    WebElement input4Comment = wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input4Comment));
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", input4Comment);
+	    
+	    if (comment4Count > 0) {
+	        String existingComment = input4Comment.getText();
+	        System.out.println("Existing Comment: " + existingComment);
+	    } else {
+	        wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input4Comment));
+	        String newComment = "A structured approach allows for consistent identification, assessment, mitigation, and monitoring of cybersecurity risks across all business units.";
+	        input4Comment.sendKeys(newComment);
+	        Thread.sleep(1000);
+	        wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+	        System.out.println("Added new comment in section 2.4 : " + newComment);
+	    }
+	    
+	    
+	    WebElement input4Justification = wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input4Justification));
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", input4Justification);
+	    	    	    
+	    String justification4Value = (String) ((JavascriptExecutor) driver).executeScript("arguments[0].innerHTML = '';", input4Justification);
+	    System.out.println("Justification (cleaned): '" + justification4Value + "'");
+
+
+	    if (justification4Value == null || justification4Value.isEmpty()) {
+	    	    	
+	        String justification4Text = "The program involves periodic risk assessments, asset classification, threat modeling, and controls evaluation.";
+	        input4Justification.sendKeys(justification4Text);
+		    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+		    System.out.println("Added justification in section 2.4 : " + justification4Text);
+	    }
+	    
+		// === SECTION 2.5 ===
+		
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(section2input5Label));
+	    WebElement section2Label5 = driver.findElement(section2input5Label);
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", section2Label5);
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", section2Label5);
+//	    Thread.sleep(1000);
+//	    section2Label5.click();
+	    
+	    WebElement input5Answer = wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input5Answer));
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", input5Answer);
+
+	    String input5Value = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value || arguments[0].getAttribute('value');", input5Answer);
+	    System.out.println("Extracted value: '" + input5Value + "'");
+	    
+	   
+	    if (input5Value == null || input5Value.trim().isEmpty()) {
+	    	input5Answer.sendKeys("Our organization determines cybersecurity risk tolerances through a combination of business impact assessments, regulatory requirements, and executive input.");
+	    }
+
+	    WebElement comment5CountElement = wait.until(ExpectedConditions.presenceOfElementLocated(
+	        By.xpath("(//div[@class='button-list-right']//span[@class='item-count-design'])[25]")
+	    ));
+	    
+	    int comment5Count = Integer.parseInt(comment5CountElement.getText().trim());
+	    System.out.println(comment5Count);
+	    Thread.sleep(2000);
+	    
+	    
+	    WebElement input5Comment = wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input5Comment));
+	    if (comment5Count > 0) {
+	        System.out.println("Existing Comment: " + input5Comment.getText());
+	    } else {
+	    	input5Comment.sendKeys("Comment for Section 2.5");
+	        Thread.sleep(2000);
+	        wait.until(ExpectedConditions.visibilityOfElementLocated(loader));
+	        System.out.println("Added new comment in section 2.5 : " + input5Comment);
+	    }
+
+        
+	    WebElement input5Justification = wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input5Justification));
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", input5Justification);
+	    
+	    String justification5Value = (String) ((JavascriptExecutor) driver).executeScript("arguments[0].innerHTML = '';", input5Justification);
+	    System.out.println("Justification (cleaned): '" + justification5Value + "'");    
+	    	    
+	    
+	    
+	    if (justification5Value == null || justification5Value.trim().isEmpty()) {
+	    	String justification5Text = "Risk tolerance is established by evaluating the potential impact of cybersecurity threats.";
+	    	input5Justification.sendKeys(justification5Text);
+	        wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+	        System.out.println("Added justification in section 2.5 : " + justification5Text);
+	    }
+
+	 
 	}
-	
-	
+		
 }

@@ -22,7 +22,7 @@ public class DefaultAssessmentTest extends BaseTest {
 		AssessmentPage assessment = new AssessmentPage(driver,wait);
 		
 		
-		login.loginEmail("flyingqa20250604181540@yopmail.com");
+		login.loginEmail("flyingqa20250606163853@yopmail.com");
 		login.loginPassword("Test@1234");
 		login.submitLogin();	
 		login.getLoggedInUserName();
@@ -42,15 +42,7 @@ public class DefaultAssessmentTest extends BaseTest {
 //		assessment.nextBtn();
 //		assessment.section3Header();
 		
-		
-		
-		
 	}
-	
-	
-	
-	
-	
 	
 	
 //    @AfterMethod

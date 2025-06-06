@@ -35,6 +35,7 @@ public class VendorPage extends BasePage {
 	private By vendorHeader =By.xpath("//h4[text()='Vendor List']");
 	private By spinnerLoader = By.cssSelector("div.e-spinner-pane:not(.e-spin-hide)");
 	private By loginTitle =  By.xpath("//h3[@class='logintitle' and contains(text(),'Login')]");
+	
 
 			
 	
@@ -54,6 +55,8 @@ public class VendorPage extends BasePage {
 	}
 	
 	public void enterVendorName(String vendorName) {
+		
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(inputVendorName));
 		driver.findElement(inputVendorName).sendKeys(vendorName);
 		System.out.println("New added vendor name is " + vendorName);
