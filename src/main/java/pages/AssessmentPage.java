@@ -715,8 +715,6 @@ public class AssessmentPage extends BasePage {
 	    WebElement section2Label3 = driver.findElement(section2input3Label);
 	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", section2Label3);
 	    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", section2Label3);
-
-//	    section2Label3.click();
 	    
 	    wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input3Radio));
 	    
@@ -830,20 +828,22 @@ public class AssessmentPage extends BasePage {
 	    WebElement section2Label5 = driver.findElement(section2input5Label);
 	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", section2Label5);
 	    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", section2Label5);
-//	    Thread.sleep(1000);
-//	    section2Label5.click();
+
 	    
 	    WebElement input5Answer = wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input5Answer));
 	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", input5Answer);
 
 	    String input5Value = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value || arguments[0].getAttribute('value');", input5Answer);
 	    System.out.println("Extracted value: '" + input5Value + "'");
-	    
+	    	    
 	   
-	    if (input5Value == null || input5Value.trim().isEmpty()) {
+	    if (input5Value == null || input5Value.isEmpty()) {
 	    	input5Answer.sendKeys("Our organization determines cybersecurity risk tolerances through a combination of business impact assessments, regulatory requirements, and executive input.");
+	    	Thread.sleep(1000);
 	    }
 
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+	    
 	    WebElement comment5CountElement = wait.until(ExpectedConditions.presenceOfElementLocated(
 	        By.xpath("(//div[@class='button-list-right']//span[@class='item-count-design'])[25]")
 	    ));
@@ -879,7 +879,171 @@ public class AssessmentPage extends BasePage {
 	        System.out.println("Added justification in section 2.5 : " + justification5Text);
 	    }
 
-	 
-	}
+	
+	// === SECTION 2.6 ===
+	
+	wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(section2input6Label));
+    WebElement section2Label6 = driver.findElement(section2input6Label);
+    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", section2Label6);
+    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", section2Label6);
+
+    
+    WebElement input6Answer = wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input6Answer));
+    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", input6Answer);
+
+    String input6Value = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value || arguments[0].getAttribute('value');", input6Answer);
+    System.out.println("Extracted value: '" + input6Value + "'");
+    
+   
+    if (input6Value == null || input6Value.trim().isEmpty()) {
+    	input6Answer.sendKeys("Our organization assesses the effectiveness of our cybersecurity risk management program through regular audits, key performance indicators (KPIs), and continuous monitoring.");
+    }
+
+    WebElement comment6CountElement = wait.until(ExpectedConditions.presenceOfElementLocated(
+        By.xpath("(//div[@class='button-list-right']//span[@class='item-count-design'])[25]")
+    ));
+    
+    int comment6Count = Integer.parseInt(comment6CountElement.getText().trim());
+    System.out.println(comment5Count);
+    Thread.sleep(2000);
+    
+    
+    WebElement input6Comment = wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input6Comment));
+    if (comment6Count > 0) {
+        System.out.println("Existing Comment: " + input6Comment.getText());
+    } else {
+    	input6Comment.sendKeys("Comment for Section 2.6");
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(loader));
+        System.out.println("Added new comment in section 2.6 : " + input6Comment);
+    }
+
+    
+    WebElement input6Justification = wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input6Justification));
+    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", input6Justification);
+    
+    String justification6Value = (String) ((JavascriptExecutor) driver).executeScript("arguments[0].innerHTML = '';", input6Justification);
+    System.out.println("Justification (cleaned): '" + justification6Value + "'");    
+    	    
+    
+    
+    if (justification6Value == null || justification6Value.trim().isEmpty()) {
+    	String justification6Text = "The effectiveness assessment methodology aligns with regulatory requirements and industry best practices.";
+    	input6Justification.sendKeys(justification6Text);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+        System.out.println("Added justification in section 2.6 : " + justification6Text);
+    }
+
+	
+	// === SECTION 2.7 ===
+	
+	wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(section2input7Label));
+    WebElement section2Label7 = driver.findElement(section2input7Label);
+    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", section2Label7);
+    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", section2Label7);
+
+    
+    WebElement input7Answer = wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input7Answer));
+    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", input7Answer);
+
+    String input7Value = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value || arguments[0].getAttribute('value');", input7Answer);
+    System.out.println("Extracted value: '" + input7Value + "'");
+    
+   
+    if (input7Value == null || input7Value.trim().isEmpty()) {
+    	input7Answer.sendKeys("Our organization assesses the effectiveness of our cybersecurity risk management program through regular audits, key performance indicators (KPIs), and continuous monitoring.");
+    }
+
+    WebElement comment7CountElement = wait.until(ExpectedConditions.presenceOfElementLocated(
+        By.xpath("(//div[@class='button-list-right']//span[@class='item-count-design'])[25]")
+    ));
+    
+    int comment7Count = Integer.parseInt(comment7CountElement.getText().trim());
+    System.out.println(comment7Count);
+    Thread.sleep(2000);
+    
+    
+    WebElement input7Comment = wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input7Comment));
+    if (comment7Count > 0) {
+        System.out.println("Existing Comment: " + input7Comment.getText());
+    } else {
+    	input7Comment.sendKeys("Comment for Section 2.7");
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(loader));
+        System.out.println("Added new comment in section 2.7 : " + input7Comment);
+    }
+
+    
+    WebElement input7Justification = wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input7Justification));
+    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", input7Justification);
+    
+    String justification7Value = (String) ((JavascriptExecutor) driver).executeScript("arguments[0].innerHTML = '';", input7Justification);
+    System.out.println("Justification (cleaned): '" + justification7Value + "'");    
+    	    
+    
+    
+    if (justification7Value == null || justification7Value.trim().isEmpty()) {
+    	String justification7Text = "The effectiveness assessment methodology aligns with regulatory requirements and industry best practices.";
+    	input7Justification.sendKeys(justification7Text);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+        System.out.println("Added justification in section 2.7 : " + justification7Text);
+    }
+
+ 
+	
+	// === SECTION 2.8 ===
+	
+	wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(section2input8Label));
+    WebElement section2Label8 = driver.findElement(section2input8Label);
+    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", section2Label8);
+    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", section2Label8);
+
+
+    wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input8Radio));
+    
+    WebElement radio8Element = driver.findElement(section2Input8Radio);
+    JavascriptExecutor js5 = (JavascriptExecutor) driver;
+    js5.executeScript("arguments[0].scrollIntoView({block: 'center'});", radio8Element);
+    js5.executeScript("arguments[0].click();", radio8Element);
+    
+    wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+    
+    
+    WebElement comment8CountElement = wait.until(ExpectedConditions.presenceOfElementLocated(
+        By.xpath("(//div[@class='button-list-right']//span[@class='item-count-design'])[25]")
+    ));
+    
+    int comment8Count = Integer.parseInt(comment8CountElement.getText().trim());
+    System.out.println(comment8Count);
+    Thread.sleep(2000);
+    
+    
+    WebElement input8Comment = wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input8Comment));
+    if (comment8Count > 0) {
+        System.out.println("Existing Comment: " + input8Comment.getText());
+    } else {
+    	input8Comment.sendKeys("Comment for Section 2.8");
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(loader));
+        System.out.println("Added new comment in section 2.8 : " + input8Comment);
+    }
+
+    
+    WebElement input8Justification = wait.until(ExpectedConditions.visibilityOfElementLocated(section2Input8Justification));
+    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", input8Justification);
+    
+    String justification8Value = (String) ((JavascriptExecutor) driver).executeScript("arguments[0].innerHTML = '';", input8Justification);
+    System.out.println("Justification (cleaned): '" + justification8Value + "'");    
+    	    
+    
+    
+    if (justification8Value == null || justification8Value.trim().isEmpty()) {
+    	String justification8Text = "The effectiveness assessment methodology aligns with regulatory requirements and industry best practices.";
+    	input8Justification.sendKeys(justification8Text);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(loader));
+        System.out.println("Added justification in section 2.8 : " + justification8Text);
+    }
 		
+	
+	}		
 }

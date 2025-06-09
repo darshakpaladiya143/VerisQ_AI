@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-06-06T18:38:54 IST" name="Default suite" finished-at="2025-06-06T18:41:14 IST" duration-ms="139230">
+  <suite started-at="2025-06-09T10:31:31 IST" name="Default suite" finished-at="2025-06-09T10:33:17 IST" duration-ms="105579">
     <groups>
     </groups>
-    <test started-at="2025-06-06T18:38:54 IST" name="Default test" finished-at="2025-06-06T18:41:14 IST" duration-ms="139230">
+    <test started-at="2025-06-09T10:31:31 IST" name="Default test" finished-at="2025-06-09T10:33:17 IST" duration-ms="105579">
       <class name="tests.DefaultAssessmentTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.DefaultAssessmentTest@56620197]" started-at="2025-06-06T18:38:54 IST" name="setUp" finished-at="2025-06-06T18:39:03 IST" duration-ms="8834" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.DefaultAssessmentTest@56620197]" started-at="2025-06-09T10:31:31 IST" name="setUp" finished-at="2025-06-09T10:31:38 IST" duration-ms="6987" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="performDefaultAssessment()[pri:0, instance:tests.DefaultAssessmentTest@56620197]" started-at="2025-06-06T18:39:03 IST" name="performDefaultAssessment" finished-at="2025-06-06T18:41:14 IST" duration-ms="130320" status="FAIL">
+        <test-method signature="performDefaultAssessment()[pri:0, instance:tests.DefaultAssessmentTest@56620197]" started-at="2025-06-09T10:31:38 IST" name="performDefaultAssessment" finished-at="2025-06-09T10:33:17 IST" duration-ms="98531" status="FAIL">
           <exception class="java.lang.NumberFormatException">
             <message>
               <![CDATA[For input string: ""]]>
@@ -21,7 +21,7 @@
 at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
 at java.base/java.lang.Integer.parseInt(Integer.java:672)
 at java.base/java.lang.Integer.parseInt(Integer.java:778)
-at pages.AssessmentPage.section2Answer(AssessmentPage.java:852)
+at pages.AssessmentPage.section2Answer(AssessmentPage.java:851)
 at tests.DefaultAssessmentTest.performDefaultAssessment(DefaultAssessmentTest.java:41)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
