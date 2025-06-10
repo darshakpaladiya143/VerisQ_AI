@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\pdarshak\AppData\Local\Temp\testng-eclipse-1126963031\testng-customsuite.xml</span>
+                    <span>C:\Users\pdarshak\AppData\Local\Temp\testng-eclipse--724625448\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -130,12 +130,29 @@
                   <a name="performDefaultAssessment">
                   </a> <!-- performDefaultAssessment -->
                   <span class="method-name">performDefaultAssessment</span>
-                  <div class="stack-trace">java.lang.NumberFormatException: For input string: &quot;&quot;
-	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
-	at java.base/java.lang.Integer.parseInt(Integer.java:672)
-	at java.base/java.lang.Integer.parseInt(Integer.java:778)
-	at pages.AssessmentPage.section2Answer(AssessmentPage.java:851)
-	at tests.DefaultAssessmentTest.performDefaultAssessment(DefaultAssessmentTest.java:41)
+                  <div class="stack-trace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (1522, -33)
+  (Session info: chrome=137.0.7151.69)
+Build info: version: &apos;4.11.0&apos;, revision: &apos;040bc5406b&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.3&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [d6d4e5e7d541f3ac83fd67a9b2f567fd, clickElement {id=f.EE5D7D613D89A2389F2FE3A362C6F05C.d.BEB01B87565A3757D0AB62E51D490B07.e.344}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.69, chrome: {chromedriverVersion: 137.0.7151.68 (2989ffee9373..., userDataDir: C:\Users\pdarshak\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63108}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63108/devtoo..., se:cdpVersion: 137.0.7151.69, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (d6d4e5e7d541f3ac83fd67a9b2f567fd)] -&gt; id: nextStep]
+Session ID: d6d4e5e7d541f3ac83fd67a9b2f567fd
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:224)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
+	at pages.AssessmentPage.nextBtn(AssessmentPage.java:514)
+	at tests.DefaultAssessmentTest.performDefaultAssessment(DefaultAssessmentTest.java:36)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -171,7 +188,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\pdarshak\AppData\Local\Temp\testng-eclipse-1126963031\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\pdarshak\AppData\Local\Temp\testng-eclipse--724625448\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -224,7 +241,7 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'performDefaultAssessment')
 data.setCell(0, 2, 'tests.DefaultAssessmentTest')
-data.setCell(0, 3, 98531);
+data.setCell(0, 3, 103374);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
@@ -264,7 +281,7 @@ return data;
                 <img src="failed.png">
                 </img>
                 <span class="method-name">performDefaultAssessment</span>
-                <span class="method-start">6988 ms</span>
+                <span class="method-start">50871 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
