@@ -60,6 +60,7 @@ public class LoginAddVendorTest extends BaseTest {
         vendor.nextButton();
         
         // Form - Step : 2
+        
         vendor.selectRadioButton("1.1", "Yes");  
         vendor.selectRadioButton("1.2", "No");  
         vendor.selectRadioButton("1.5", "Yes");

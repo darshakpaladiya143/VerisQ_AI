@@ -45,7 +45,36 @@ public class DefaultAssessmentTest extends BaseTest {
 		// Section - 3
 		
 		assessment.section3Answer();
+		assessment.nextBtn();
+		assessment.section4Header();
 		
+		// Section - 4 
+		
+		assessment.section4Answer();
+		assessment.nextBtn();
+		assessment.section5Header();
+		
+		// Section - 5
+		
+		assessment.section5Answer();
+		assessment.nextBtn();
+		assessment.section6Header();
+		
+		// Section - 6
+		
+		assessment.section6Answer();
+		assessment.nextBtn();
+		assessment.section7Header();
+		
+		// Section -7 
+		
+		assessment.section7Answer();
+		assessment.nextBtn();
+        assessment.section8Header();
+        
+        // Submit Default Assessment 
+        
+        
 		
 	}
 	
